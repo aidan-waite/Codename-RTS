@@ -803,8 +803,6 @@ function widget:GameFrame(gf)
 end
 
 function widget:Initialize()
-	Spring.Echo("vvv gui_pregameui_draft Initialize start numPlayers:" .. tostring(numPlayers) .. " draftMode:" .. draftMode)
-
 	if (Game.startPosType ~= 2) or draftMode == nil or draftMode == "disabled" then
 		widgetHandler:RemoveWidget()
 		return
