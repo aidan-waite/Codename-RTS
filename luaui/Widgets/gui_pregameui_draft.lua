@@ -803,6 +803,8 @@ function widget:GameFrame(gf)
 end
 
 function widget:Initialize()
+	Spring.Echo("vvv gui_pregameui_draft Initialize start numPlayers:" .. tostring(numPlayers) .. " draftMode:" .. draftMode)
+
 	if (Game.startPosType ~= 2) or draftMode == nil or draftMode == "disabled" then
 		widgetHandler:RemoveWidget()
 		return
@@ -853,6 +855,14 @@ function widget:Initialize()
 	end
 
 	widget:ViewResize(vsx, vsy)
+
+	Spring.Echo("vvv Insta lock player and start game");
+	pressedReady = true
+	readied = true
+	Spring.SendLuaRulesMsg("ready_to_start_game")
+	locked = true
+	Spring.SendLuaRulesMsg("locking_in_place")
+
 	checkStartPointChosen()
 
 	if (draftMode ~= nil and draftMode ~= "disabled") then
