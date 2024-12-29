@@ -854,15 +854,6 @@ function widget:Initialize()
 
 	widget:ViewResize(vsx, vsy)
 
-	Spring.Echo("vvv Insta lock player and start game");
-	pressedReady = true
-	readied = true
-	Spring.SendLuaRulesMsg("ready_to_start_game")
-	locked = true
-	Spring.SendLuaRulesMsg("locking_in_place")
-
-	checkStartPointChosen()
-
 	if (draftMode ~= nil and draftMode ~= "disabled") then
 		reloadedDraftMode = os.clock()+2 -- in case you luaui reload
 	end
